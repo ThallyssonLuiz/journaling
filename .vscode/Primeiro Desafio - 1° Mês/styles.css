@@ -1,0 +1,196 @@
+
+/* váriaveis para o CSS (var)*/
+:root {
+  --primary-color: #2c3e50;
+  --text-color: #2c3e50;
+  --text-light: #7f8c8d;
+  --background-color: #ffffff;
+  --card-background: #f4f8fc;
+  --border-color: #e9ecef;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --border-radius: 12px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-x1: 32px;
+}
+
+/* Complementação para o modo escuro*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #ecf0f1;
+    --text-color: #ecf0f1;
+    --text-light: #bdc3c7;
+    --background-color: #000000;
+    --card-background: #2c2c2c;
+    --border-color: #404040;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Reset full*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* corpo da página, geral */
+body {
+  font-family: "Syne Mono", monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 0.8em;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+/* parte principal */
+main {
+  width: 90%;
+  max-width: 800px;
+}
+
+/* Container */
+.container {
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow);
+  max-width: 600px;
+  margin: var(--spacing-lg);
+}
+
+/* button */
+.button {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to right, #0c3999, #374151);
+  color: #1f0505;
+  font-size: 0.9em;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  padding: 6px 12px;
+}
+
+/* Cabeçalho principal */
+.main-header {
+  text-align: center;
+  margin-bottom: var(--spacing-x1);
+  padding: var(--spacing-lg) 0;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.main-header h1 {
+  font-family: "Syne Mono", monospace;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-xs);
+}
+
+.subtitle {
+  font-size: 1.1em;
+  color: var(--text-light);
+  font-weight: 300;
+}
+
+/* Seção de entradas */
+.entries-section h2 {
+  font-family: "Syne Mono", serif;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+/* Conteúdo principal */
+.journal-content {
+  flex: 1;
+  width: 100%;
+}
+
+/* Entradas */
+.journal-entry {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+  /* Sombra para ficar atrás do FLEXBOX*/
+.journal-entry:hover {
+     transform: translateY(-2px);
+  box-shadow:
+    0 4px 20px rgba(17, 0, 19, 0.4), 
+    0 10px 30px rgba(109, 1, 104, 0.3); 
+}
+
+/* Cabeçalho da entrada */
+.entry-header {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4em;
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+}
+
+.entry-header time {
+  display: inline-block;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: var(--background-color);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  margin-top: var(--spacing-xs);
+}
+
+/* Conteúdo da entrada */
+.entry-content {
+  margin-bottom: var(--spacing-md);
+}
+
+/* Rodapé da entrada */
+.entry-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  padding-top: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-sm);
+  }
+
+  .main-header h1 {
+    font-size: 2rem;
+  }
+
+  .entry-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .journal-entry {
+    padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .main-header h1 {
+    font-size: 1.8rem;
+  }
+}
